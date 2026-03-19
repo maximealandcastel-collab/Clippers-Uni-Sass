@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/p2c-university/"
+title = "P2CUniversity.com"
+version = "1.0.0"
+id = "artifacts/p2c-university"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+localPort = 25276
+name = "web"
+paths = ["/p2c-university/"]
+
+[services.development]
+run = "pnpm --filter @workspace/p2c-university run dev"
+
+[services.env]
+PORT = "25276"
+BASE_PATH = "/p2c-university/"
+
+[services.production]
+build = ["pnpm", "--filter", "@workspace/p2c-university", "run", "build"]
+publicDir = "artifacts/p2c-university/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"

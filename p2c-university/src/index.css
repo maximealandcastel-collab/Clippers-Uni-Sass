@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: transparent;
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --color-highlight: hsl(var(--highlight));
+  --color-footer-bg: hsl(var(--footer-bg));
+
+  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Playfair Display', serif;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+}
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 220 20% 8%;
+  
+  --card: 0 0% 100%;
+  --card-foreground: 220 20% 8%;
+  --card-border: 220 15% 91%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 20% 8%;
+  --popover-border: 220 15% 91%;
+  
+  /* Primary: Deep Royal Blue */
+  --primary: 220 85% 38%;
+  --primary-foreground: 0 0% 100%;
+  --primary-border: 220 85% 32%;
+  
+  --secondary: 220 20% 96%;
+  --secondary-foreground: 220 20% 12%;
+  --secondary-border: 220 15% 90%;
+  
+  --muted: 220 15% 96%;
+  --muted-foreground: 220 10% 45%;
+  --muted-border: 220 15% 88%;
+  
+  /* Accent: same as background — bg-accent produces no fill; glow handles selected state */
+  --accent: 0 0% 100%;
+  --accent-foreground: 25 100% 42%;
+  --accent-border: 25 90% 85%;
+  
+  /* Highlight: Crimson/Red for decorative depth */
+  --highlight: 0 72% 48%;
+
+  /* Footer deep blue */
+  --footer-bg: 220 60% 10%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --destructive-border: 0 84% 55%;
+
+  --border: 220 15% 90%;
+  --input: 220 15% 90%;
+  --ring: 220 85% 38%;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.08);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.08);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.06);
+}
+
+.dark {
+  --background: 222 35% 6%;
+  --foreground: 210 20% 96%;
+  
+  --card: 222 30% 9%;
+  --card-foreground: 210 20% 96%;
+  --card-border: 222 25% 16%;
+  
+  --popover: 222 30% 9%;
+  --popover-foreground: 210 20% 96%;
+  --popover-border: 222 25% 16%;
+  
+  /* Primary: Bright Royal Blue */
+  --primary: 220 80% 58%;
+  --primary-foreground: 0 0% 100%;
+  --primary-border: 220 80% 52%;
+  
+  --secondary: 222 25% 14%;
+  --secondary-foreground: 210 20% 96%;
+  --secondary-border: 222 25% 20%;
+  
+  --muted: 222 25% 14%;
+  --muted-foreground: 220 15% 60%;
+  --muted-border: 222 25% 20%;
+  
+  /* Accent: same as card background — bg-accent produces no fill; glow handles selected state */
+  --accent: 222 30% 9%;
+  --accent-foreground: 25 100% 62%;
+  --accent-border: 25 40% 20%;
+  
+  /* Highlight: Crimson/Red */
+  --highlight: 0 72% 55%;
+
+  /* Footer deep blue */
+  --footer-bg: 220 60% 10%;
+
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 98%;
+  --destructive-border: 0 62% 35%;
+
+  --border: 222 25% 16%;
+  --input: 222 25% 18%;
+  --ring: 220 80% 58%;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.5), 0 1px 2px -1px rgb(0 0 0 / 0.5);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased font-sans selection:bg-primary/30 selection:text-primary-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+  .box-glow {
+    box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.15);
+  }
+
+  /* Glossy glass panel — white background with inner-top highlight sheen */
+  .glass-panel {
+    background: linear-gradient(
+      160deg,
+      rgba(255,255,255,0.92) 0%,
+      rgba(255,255,255,0.75) 100%
+    );
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.7);
+    box-shadow:
+      0 0 0 1px rgba(37, 99, 235, 0.08),
+      0 4px 24px -4px rgba(37, 99, 235, 0.10),
+      inset 0 1px 0 rgba(255,255,255,0.9);
+  }
+
+  /* Gloss card — surface shine with white-to-transparent top gradient overlay */
+  .gloss-card {
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff !important;
+    border-color: hsl(var(--primary)) !important;
+    border-width: 1.5px !important;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+  }
+  .gloss-card:hover {
+    border-color: #FF6B00 !important;
+    box-shadow: 0 0 0 2px rgba(255,107,0,0.15), 0 4px 20px -4px rgba(255,107,0,0.25) !important;
+    background-color: rgba(255,107,0,0.03) !important;
+  }
+  .gloss-card:active {
+    border-color: #FF6B00 !important;
+    box-shadow: 0 0 0 3px rgba(255,107,0,0.25), 0 2px 8px -2px rgba(255,107,0,0.3) !important;
+    background-color: rgba(255,107,0,0.06) !important;
+  }
+  .gloss-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(
+      180deg,
+      rgba(255,255,255,0.18) 0%,
+      rgba(255,255,255,0) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+  }
+
+  .orange-glow {
+    box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.15), 0 0 12px rgba(255, 107, 0, 0.25);
+  }
+
+  [data-selected="true"],
+  [data-state="on"],
+  [data-highlighted],
+  [role="menuitem"]:focus,
+  [role="option"]:focus,
+  [role="menuitemcheckbox"]:focus,
+  [role="menuitemradio"]:focus {
+    box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.15), 0 0 12px rgba(255, 107, 0, 0.25);
+  }
+
+  [role="menuitem"][data-state="open"],
+  [role="button"][data-state="open"]:where([data-radix-collection-item]) {
+    box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.15), 0 0 12px rgba(255, 107, 0, 0.25);
+  }
+
+  .logo-glow {
+    filter: drop-shadow(0 0 10px rgba(255, 107, 0, 0.45));
+  }
+
+  /* Orange spark underline — for 1-2 headline words */
+  .orange-underline {
+    text-decoration: underline;
+    text-decoration-color: #FF6B00;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+  }
+
+  /* Red accent sidebar / decorative line */
+  .red-accent-line {
+    border-left: 3px solid hsl(var(--highlight));
+  }
+
+  /* Footer deep blue anchor */
+  .footer-bg {
+    background-color: hsl(var(--footer-bg));
+  }
+
+  /* Crimson highlight text */
+  .text-highlight {
+    color: hsl(var(--highlight));
+  }
+
+  /* Crimson highlight background (very light tint) */
+  .bg-highlight\/5 {
+    background-color: hsl(var(--highlight) / 0.05);
+  }
+  .bg-highlight\/6 {
+    background-color: hsl(var(--highlight) / 0.06);
+  }
+  .border-highlight\/15 {
+    border-color: hsl(var(--highlight) / 0.15);
+  }
+  .border-highlight\/4 {
+    border-color: hsl(var(--highlight) / 0.4);
+  }
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee-scroll 20s linear infinite;
+  will-change: transform;
+}
+
+.influencer-track {
+  animation: marquee-scroll 28s linear infinite;
+  will-change: transform;
+}
+
+.influencer-track:hover {
+  animation-play-state: paused;
+}
+
+.ugc-video-track {
+  animation: marquee-scroll 36s linear infinite;
+  will-change: transform;
+}
+
+.logo-track {
+  animation: marquee-scroll 40s linear infinite;
+  will-change: transform;
+}
+
+.logo-track:hover {
+  animation-play-state: paused;
+}
+
+.ugc-video-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes hero-logo-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(30,64,175,0.5)) drop-shadow(0 0 30px rgba(204,17,17,0.3)) drop-shadow(0 0 50px rgba(255,107,0,0.15));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 24px rgba(30,64,175,0.8)) drop-shadow(0 0 60px rgba(204,17,17,0.5)) drop-shadow(0 0 90px rgba(255,107,0,0.3));
+    transform: scale(1.03);
+  }
+}
+
+.hero-logo-animate {
+  animation: hero-logo-glow 2.8s ease-in-out infinite;
+  will-change: filter, transform;
+}
+
+.nav-cu-c {
+  font-family: var(--font-display, 'Oswald', sans-serif);
+  font-weight: 900;
+  font-size: 1.65em;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #1E40AF;
+  -webkit-text-stroke: 1.5px #B8960C;
+  paint-order: stroke fill;
+  text-shadow: 1px 2px 0 rgba(0,0,0,0.4);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav-cu-u {
+  font-family: var(--font-display, 'Oswald', sans-serif);
+  font-weight: 900;
+  font-size: 1.45em;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #C41E1E;
+  -webkit-text-stroke: 1.5px #B8960C;
+  paint-order: stroke fill;
+  text-shadow: 1px 2px 0 rgba(0,0,0,0.4);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav-cu-rest {
+  font-size: 0.9em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #1a1a2e;
+  vertical-align: middle;
+}
